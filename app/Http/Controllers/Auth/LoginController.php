@@ -35,9 +35,9 @@ class LoginController extends Controller
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->has('remember'))) {
             $user = auth()->user()->load('roles');
             if($user->roles->first()->slug == 'developer') {
-                return redirect()->route('developer.profile.show');
+                return redirect()->route('developer.profile.create');
             } elseif($user->roles->first()->slug == 'employer') {
-                return redirect()->route('employer.profile.show');
+                return redirect()->route('employer.profile.create');
             }
         }
         $this->incrementLoginAttempts($request);

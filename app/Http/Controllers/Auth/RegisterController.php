@@ -30,7 +30,8 @@ class RegisterController extends Controller
 
     public function store(Register $request, User $user)
     {
-        $user->addNew($request);
+        $user = $user->addNew($request);
+        auth()->login($user);
         if($request->type === 'developer') {
             return redirect()->route('developer.profile.create');
         } 

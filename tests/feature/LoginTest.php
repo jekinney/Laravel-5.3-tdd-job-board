@@ -23,7 +23,7 @@ class LoginTest extends TestCase
         	->type('john@example.com', 'email')
         	->type('secret', 'password')
         	->press('Login')
-        	->seePageIs('developer/profile/show');
+        	->seePageIs('developer/profile/create');
     }
 
     /** @test */
@@ -40,6 +40,6 @@ class LoginTest extends TestCase
         	->type('john@example.com', 'email')
         	->type('secret', 'password')
         	->press('Login')
-        	->seePageIs('employer/profile/show');
+        	->seePageIs('employer/profile/create');
     }
 }
